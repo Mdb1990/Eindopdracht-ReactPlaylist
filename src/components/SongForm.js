@@ -38,12 +38,18 @@ const SongForm = (props) => {
           value={formAdd.genre}
           onChange={onChangeForm}
         ></input>
-        <input
-          type="text"
-          name="rating"
-          value={formAdd.rating}
-          onChange={onChangeForm}
-        ></input>
+        <select
+          onChange={(e) => {
+            const selectedRating = e.target.value;
+            setformAdd({ ...formAdd, rating: selectedRating });
+          }}
+        >
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
         <button type="submit">Submit</button>
       </form>
     </div>
