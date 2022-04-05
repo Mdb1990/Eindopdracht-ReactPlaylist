@@ -6,6 +6,7 @@ const SongForm = (props) => {
     artist: "",
     genre: "",
     rating: "",
+    id: "",
   });
 
   const onChangeForm = (e) => {
@@ -20,24 +21,28 @@ const SongForm = (props) => {
   return (
     <div>
       <form onSubmit={onSubmitForm}>
+        <label>Song</label>
         <input
           type="text"
           name="song"
           value={formAdd.song}
           onChange={onChangeForm}
         ></input>
+        <label>Artist</label>
         <input
           type="text"
           name="artist"
           value={formAdd.artist}
           onChange={onChangeForm}
         ></input>
+        <label>Genre</label>
         <input
           type="text"
           name="genre"
           value={formAdd.genre}
           onChange={onChangeForm}
         ></input>
+        <label>Rating</label>
         <select
           onChange={(e) => {
             const selectedRating = e.target.value;

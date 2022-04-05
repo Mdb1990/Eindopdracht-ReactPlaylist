@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import SongForm from "./SongForm";
 import SongList from "./SongList";
+import { nanoid } from "nanoid";
 
 class SongOverview extends Component {
   constructor(props) {
@@ -12,6 +13,7 @@ class SongOverview extends Component {
           artist: "Maryscoovy",
           genre: "Stonerrock",
           rating: "5",
+          id: "lalalie",
         },
       ],
     };
@@ -23,25 +25,44 @@ class SongOverview extends Component {
       artist: song.artist,
       genre: song.genre,
       rating: song.rating,
+      id: nanoid(),
     };
-    this.setState({ songs: [...this.state.songs, newSong] });
+    this.setState({ songs: [...this.state.songs, newSong] }, () => {
+      localStorage.setItem("songs", JSON.stringify(this.state.songs));
+    });
+  };
+
+  componentDidMount() {
+    const songs = localStorage.getItem("songs");
+    if (songs) this.setState({ songs: JSON.parse(songs) });
+  }
+
+  deleteSong = (id) => {
+    const newSongsList = [...this.state.songs];
+    const indexSongs = this.state.songs.findIndex((songi) => songi.id === id);
+    newSongsList.splice(indexSongs, 1);
+    this.setState({ songs: newSongsList }, () => {
+      localStorage.setItem("songs", JSON.stringify(this.state.songs));
+    });
   };
 
   render() {
     return (
       <div id="div-table">
+        <h1>Song Saver</h1>
         <SongForm addSong={this.addSong} />
-        <table id="table-style" style={{ width: "100%" }}>
-          <thead>
-            <tr className="song-header">
-              <th className="song-row__item">Song</th>
-              <th className="song-row__item">Artist</th>
-              <th className="song-row__item">Genre</th>
-              <th className="song-row__item">Rating</th>
+        <table id="table-style">
+          <thead id="table-header">
+            <tr>
+              <th class="song-head">Song</th>
+              <th class="song-head">Artist</th>
+              <th class="song-head">Genre</th>
+              <th class="song-head">Rating</th>
+              <th class="song-head">Delete</th>
             </tr>
           </thead>
           <tbody>
-            <SongList songs={this.state} />
+            <SongList deleteSong={this.deleteSong} songs={this.state} />
           </tbody>
         </table>
       </div>

@@ -1,5 +1,5 @@
 /** @format */
-import "./App.css";
+import "./css/App.css";
 import SongOverview from "./components/SongOverview";
 
 function App() {

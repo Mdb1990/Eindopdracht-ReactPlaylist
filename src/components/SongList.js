@@ -1,13 +1,18 @@
 import React from "react";
 
-const SongList = (props) => {
-  const songLists = props.songs.songs;
+const SongList = ({ songs, deleteSong }) => {
+  const songLists = songs.songs;
   return songLists.map((song) => (
-    <tr className="song-header">
-      <td className="song-row__item">{song.song}</td>
-      <td className="song-row__item">{song.artist}</td>
-      <td className="song-row__item">{song.genre}</td>
-      <td className="song-row__item">{song.rating}</td>
+    <tr>
+      <td class="song-data">{song.song}</td>
+      <td class="song-data">{song.artist}</td>
+      <td class="song-data">{song.genre}</td>
+      <td class="song-data">{song.rating}</td>
+      <td>
+        <button type="delete" onClick={() => deleteSong(song.id)}>
+          Delete
+        </button>
+      </td>
     </tr>
   ));
 };

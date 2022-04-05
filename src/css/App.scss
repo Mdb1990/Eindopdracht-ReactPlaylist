@@ -1,0 +1,112 @@
+/** @format */
+body {
+  margin: 0px;
+  padding: 0px;
+  background-color: rgba(49, 49, 49, 0.904);
+}
+
+* {
+  box-sizing: border-box;
+
+}
+
+.App {
+  text-align: center;
+  border: 5px;
+  padding: 0px;
+  margin: 0px;
+}
+
+table, th {
+  text-align: center;
+  padding: 10px 8px;
+  border: thin solid #000;
+  border-radius: 4px;
+}
+
+th {
+  width: 10%;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+  position: absolute;
+  top: 210px;
+  color:  rgb(202, 202, 202);;
+  font-size: 30px;
+}
+
+table {
+  margin: 25px 0;
+  font-size: 1em;
+  font-family: sans-serif;
+  width: 100%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.205);
+  position: fixed;
+  color: rgb(202, 202, 202);
+}
+
+#table-header {
+  background-color: rgb(129, 157, 184);
+  font-style: oblique;
+  color: #000;
+
+}
+
+button {
+	outline: none !important;
+	border: none;
+	background: transparent;
+}
+
+input[type=text], select{
+  width: 20%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+button[type=submit], button[type=delete] {
+  background-color: rgb(129, 157, 184);
+  color: rgb(0, 0, 0);
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+form {
+  margin-top: 100px;
+}
+
+#List {
+  text-decoration: none;
+  color: #ccc;
+  font-size: 30px;
+  padding: 0px;
+  justify-content: center;
+  display: flex;
+  border: 1px solid #000;
+  width: 100px;
+}
+
+h1 {
+  color: rgb(202, 202, 202);
+  text-decoration: underline;
+  text-shadow: 2px 2px #000000;
+  font-size: 50px;
+}
+
+#about-h1 {
+  text-align: center;
+}
+
+#para-about {
+  text-align: center;
+  font-size: 30px;
+  padding: 100px;
+  color: rgb(202, 202, 202);
+}
